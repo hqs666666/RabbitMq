@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     version="2.0">
+
+  <processing-directives>
+    <overwrite-existing-data>true</overwrite-existing-data>
+  </processing-directives>
+
+  <schedule>
+    <job>
+      <name>RabbitMqJob</name>
+      <group>RabbitMqGroup</group>
+      <description>定时发送消息任务</description>
+      <job-type>RabbitMQ.Quartz.RabbitMqJob, RabbitMQ.Quartz</job-type>
+      <durable>true</durable>
+      <recover>false</recover>
+    </job>
+
+    <trigger>
+      <simple>
+        <name>RabbitMqTrigger</name>
+        <group>RabbitMqGroup</group>
+        <description>定时发送消息任务触发器</description>
+        <job-name>RabbitMqJob</job-name>
+        <job-group>RabbitMqGroup</job-group>
+        <repeat-count>-1</repeat-count>
+        <repeat-interval>7200000</repeat-interval>
+      </simple>
+    </trigger>
+
+    <!--<trigger>
+      <cron>
+        <name>RabbitMqTrigger</name>
+        <group>RabbitMqGroup</group>
+        <description>定时发送消息任务触发器</description>
+        <job-name>RabbitMqJob</job-name>
+        <job-group>RabbitMqGroup</job-group>
+        <cron-expression>"0 08 17 ? * *"</cron-expression>
+      </cron>
+    </trigger>-->
+
+  </schedule>
+</job-scheduling-data>
