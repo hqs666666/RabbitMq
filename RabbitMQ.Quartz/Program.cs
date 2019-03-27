@@ -43,6 +43,7 @@ namespace RabbitMQ.Quartz
                            services.AddHostedService<QuartzService>();
 
                            services.AddSingleton<RabbitMqJob, RabbitMqJob>();
+                           services.AddSingleton<WeatherJob, WeatherJob>();
                        })
                        .ConfigureLogging((hostContext, configLogging) =>
                        {
