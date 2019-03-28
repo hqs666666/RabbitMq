@@ -23,7 +23,7 @@ namespace RabbitMQ.Quartz
             {
                 UserName = "guest",//用户名
                 Password = "guest",//密码
-                HostName = "localhost"//rabbitmq ip
+                HostName = "t.cn"//rabbitmq ip
             };
 
             var exchageName = "exchange_weather";
